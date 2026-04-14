@@ -2,6 +2,7 @@ version: "3.9"
 
 services:
   api:
+  # Define como a imagem da api será construíd
     build:
       context: ./ex-docker-api
 
