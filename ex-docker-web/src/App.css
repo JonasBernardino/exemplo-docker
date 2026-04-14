@@ -1,0 +1,126 @@
+.app {
+  min-height: 100svh;
+  display: grid;
+  place-items: center;
+  padding: 32px 20px;
+  box-sizing: border-box;
+}
+
+.consulta {
+  width: min(100%, 720px);
+}
+
+.sr-only {
+  width: 1px;
+  height: 1px;
+  position: absolute;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+}
+
+.formulario {
+  display: grid;
+  gap: 10px;
+  text-align: left;
+}
+
+.formulario label {
+  font-weight: 700;
+  color: var(--text-h);
+}
+
+.campo-busca {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 10px;
+}
+
+.campo-busca input,
+.campo-busca button {
+  min-height: 48px;
+  border-radius: 8px;
+  font: inherit;
+}
+
+.campo-busca input {
+  width: 100%;
+  border: 1px solid var(--border);
+  color: var(--text-h);
+  background: var(--bg);
+  padding: 0 14px;
+  box-sizing: border-box;
+}
+
+.campo-busca input:focus {
+  border-color: var(--accent);
+  outline: 2px solid var(--accent-bg);
+}
+
+.campo-busca button {
+  border: 0;
+  color: #ffffff;
+  background: var(--accent);
+  padding: 0 24px;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.campo-busca button:hover:not(:disabled) {
+  filter: brightness(0.95);
+}
+
+.campo-busca button:disabled {
+  cursor: wait;
+  opacity: 0.7;
+}
+
+.mensagem-erro {
+  margin-top: 18px;
+  color: #b42318;
+  font-weight: 700;
+  text-align: left;
+}
+
+.resultado {
+  margin-top: 28px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 24px;
+  text-align: left;
+}
+
+.resultado h2 {
+  margin: 0 0 18px;
+}
+
+.resultado dl {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  margin: 0;
+}
+
+.resultado dt {
+  color: var(--text);
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.resultado dd {
+  margin: 4px 0 0;
+  color: var(--text-h);
+  font-weight: 600;
+}
+
+@media (max-width: 640px) {
+  .campo-busca,
+  .resultado dl {
+    grid-template-columns: 1fr;
+  }
+
+  .campo-busca button {
+    width: 100%;
+  }
+}

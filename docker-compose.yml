@@ -1,0 +1,34 @@
+version: "3.9"
+
+services:
+  api:
+    build:
+      context: ./ex-docker-api
+
+    # Define um nome fixo para o container da API
+    container_name: ex-docker-api
+
+    ports:
+      - "8080:8080"
+
+  # Serviço do front-end React servido pelo Nginx
+  web:
+    # Define como a imagem do front-end será construída
+    build:
+      # Informa que o Dockerfile do front-end está dentro da pasta ex-docker-web
+      context: ./ex-docker-web
+
+    # Define um nome fixo para o container do front-end
+    container_name: ex-docker-web
+
+    # Faz o mapeamento de portas
+    # Aqui a porta 3000 da máquina aponta para a porta 80 do Nginx no container
+    ports:
+      - "3000:80"
+
+    # Define que o front-end depende da API
+    # Isso faz o Compose iniciar a API antes do front-end
+    # Atenção: isso não garante que a API já estará pronta para receber requisições,
+    # apenas garante a ordem de subida dos containers
+    depends_on:
+      - api
